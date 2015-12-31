@@ -5,7 +5,7 @@
 set -e
 set -u
 name=kafka
-version=0.8.2.1
+version=0.8.2.2
 scala_version=2.10
 description="Apache Kafka is a distributed publish-subscribe messaging system."
 url="https://kafka.apache.org/"
@@ -39,7 +39,6 @@ mkdir -p build/var/log/kafka
 cp ${origdir}/kafka-broker.default build/etc/default/kafka-broker
 cp ${origdir}/kafka-broker.upstart.conf build/etc/init/kafka-broker.conf
 cp ${origdir}/kafka-broker.init.d build/etc/init.d/kafka
-cp ${origdir}/zookeeper.init.d build/etc/init.d/zookeeper
 
 # This code line uses the src packages
 tar zxf ${origdir}/${src_package}
@@ -56,7 +55,6 @@ rm -rf kafka_${scala_version}-${version}
 tar zxf ${origdir}/${bin_package}
 cd kafka_${scala_version}-${version}
 cp config/server.properties ../build/etc/kafka
-cp config/zookeeper.properties ../build/etc/kakfa/zookeeper.properties
 mv * ../build/usr/lib/kafka
 cd ../build
 

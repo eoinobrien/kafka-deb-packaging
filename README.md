@@ -40,20 +40,9 @@ Created package {:path=>"kafka_0.8.2.1-5_all.deb"}
 $ dpkg -i kafka_0.8.2.1-10_all.deb
 ```
 
-or if you have your own repo:
-
-```sh
-$ ~/gpg-agent-headless.sh
-$ reprepro -b /var/repositories/ includedeb trusty $@
-$ apt-get install kafka
-```
-Note: Installs and runs as user 'app'. Easy to change for your needs.
-
 ## Post install
 
 ```sh
-$ sudo update-rc.d zookeeper defaults 20
-
 $ sudo update-rc.d kafka defaults 25
 
  Adding system startup for /etc/init.d/kafka ...
@@ -73,9 +62,3 @@ $ /usr/lib/kafka/bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic
 
 Created topic "installtest".
 ```
-
-## Tested Platforms
-
-* Ubuntu 14.04LTS, Amazon EC2
-
-
